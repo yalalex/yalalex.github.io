@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState, Fragment } from 'react';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
 import './App.css';
 
-function App() {
+import 'materialize-css/dist/css/materialize.min.css';
+import M from 'materialize-css/dist/js/materialize.min.js';
+
+const App = () => {
+  useEffect(() => {
+    M.AutoInit();
+  });
+
+  const [lang, setLang] = useState('en');
+  const [route, setRoute] = useState('home');
+
+  const switchLang = () => {
+    lang === 'en' ? setLang('ru') : setLang('en');
+  };
+
+  const switchRoute = route => {
+    setRoute(route);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Navbar lang={lang} switchRoute={switchRoute} switchLang={switchLang} />
+      <div className='container'>
+        {route === 'home' ? (
+          <Home lang={lang} switchRoute={switchRoute} />
+        ) : (
+          <Projects lang={lang} />
+        )}
+        <Contact />
+      </div>
+    </Fragment>
   );
-}
+};
 
 export default App;
