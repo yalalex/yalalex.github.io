@@ -1,0 +1,1 @@
+{"version":3,"sources":["App.css"],"names":[],"mappings":"AAAA,KACE,wBACF,CAEA,UACE,gCAAyB,CAAzB,wBACF","file":"main.87cf4b6a.chunk.css","sourcesContent":["html {\r\n  background-color: #f2f2f2;\r\n}\r\n\r\n.telegram {\r\n  transform: rotate(320deg);\r\n}\r\n\r\n/* #d9d9d9 */\r\n/* #f2f2f2 */\r\n/* background: linear-gradient(90deg, #3e5151 0%, #decba4 100%); */\r\n"]}
